@@ -10,7 +10,7 @@ class Product(models.Model):
     slug = models.SlugField(max_length=255, unique=True, default='auto', verbose_name='Slug')
     pub_date = models.DateTimeField(auto_now_add=True, verbose_name='Время публикации')
     is_published = models.BooleanField(default=False, verbose_name='Статус')
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Владелец')
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='products', verbose_name='Владелец')
 
     def __str__(self):
         return self.name

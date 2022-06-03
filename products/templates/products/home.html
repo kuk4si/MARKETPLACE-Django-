@@ -25,7 +25,7 @@
     <tr>
       <td><a href="{% url 'products:detail' product.slug %}">{{ product.name }}</a></td>
       <td>{{ product.price }}</td>
-      <td>{{ product.owner }}</td>
+      <td><a href="{% url 'accounts:profile' product.owner.pk %}">{{ product.owner }}</a></td>
     </tr>
   {% endfor %}
   </tbody>
