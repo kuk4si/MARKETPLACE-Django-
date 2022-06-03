@@ -50,6 +50,7 @@
 
 
           {% if user.is_authenticated %}
+
             <li class="nav-item">
               <a class="nav-link" style="color: yellow;" href="#">{{ user.username }}</a>
             </li>
@@ -57,7 +58,13 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'accounts:logout' %}">Выйти</a>
             </li>
+
+            <li class="nav-item">
+              <a class="nav-link" style="color: #3AD127;" href="{% url 'products:add' %}">Добавить товар</a>
+            </li>
+
           {% else %}
+
             <li class="nav-item">
               <a class="nav-link" style="color: yellow;" href="{% url 'accounts:login' %}">Войти</a>
             </li>
@@ -65,6 +72,7 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'accounts:register' %}">Зарегестрироваться</a>
             </li>
+
           {% endif %}
 
 
