@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Товары{% endblock %}
+
+
+
+{% block content %}
+
+
+
+
+
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+
+      <th scope="col">Название</th>
+      <th scope="col">Цена</th>
+      <th scope="col">Продавец</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for product in products %}
+    <tr>
+      <td><a href="{% url 'products:detail' product.slug %}">{{ product.name }}</a></td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.owner }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+
+{% endblock %}
