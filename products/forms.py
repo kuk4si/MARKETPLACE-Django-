@@ -26,8 +26,8 @@ class ProductForm(forms.ModelForm):
 
     class Meta:
         model = Product
-        # fields = ('name', 'price', 'description',)
-        fields = '__all__'
+        fields = ('owner', 'name', 'price', 'description',)
+        # fields = '__all__'
 
 
 

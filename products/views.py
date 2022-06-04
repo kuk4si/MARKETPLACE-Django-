@@ -21,11 +21,9 @@ def create(request):
     user = request.user
     form = ProductForm(initial={'owner': user})
     if request.method == 'POST':
-        data = request.POST
-        if data:
-            owner = user
         form = ProductForm(request.POST)
         if form.is_valid():
+            print(form.cleaned_data)
             form.save()
             return redirect('/')
     return render(request, 'products/add_product.html', {'form': form})
