@@ -50,5 +50,5 @@ def profile(request, pk):
 
 class ProfileUpdate(UpdateView):
     model = Profile
-    fields = ['bio']
+    fields = ['bio', 'avatar']
     template_name = 'accounts/profile_update.html'

@@ -1,14 +1,25 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}Пользователь {{ user.username }}{% endblock %}
 
 {% block content %}
 
         <h1>{{ user.username }}</h1>
 
-        <a href="{% url 'accounts:profile_update' user.pk %}">
-            <button type="button" class="btn btn-primary">Редактировать</button>
-        </a>
+        {% get_static_prefix as STATIC_PREFIX %}
+
+
+        {% if user.profile.avatar %}
+            <img class="user_avatar" src="{{ user.profile.avatar.url }}">
+        {% else %}
+            <img class="user_avatar" src="{{ STATIC_PREFIX }}img/default_profile_avatar.jpg">
+        {% endif %}
+
+        <div class="">
+            <a href="{% url 'accounts:profile_update' user.pk %}">
+                <button type="button" class="btn btn-primary">Редактировать</button>
+            </a>
+        </div>
 
         <p>Имя: {{ user.profile.name }}</p>
         <p>О себе: {{ user.profile.bio }}</p>
