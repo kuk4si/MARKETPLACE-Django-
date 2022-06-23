@@ -6,6 +6,10 @@
 
         <h1>{{ user.username }}</h1>
 
+        <a href="{% url 'accounts:profile_update' user.pk %}">
+            <button type="button" class="btn btn-primary">Редактировать</button>
+        </a>
+
         <p>Имя: {{ user.profile.name }}</p>
         <p>О себе: {{ user.profile.bio }}</p>
         <p>Дата регистрации: {{ user.date_joined }}</p>

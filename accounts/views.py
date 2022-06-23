@@ -2,6 +2,9 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
+from django.views.generic import UpdateView
+from .models import Profile
 
 from .forms import UserLoginForm, UserRegistrationForm
 
@@ -29,7 +32,7 @@ def registration_view(request):
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             new_user = form.save(commit=False)
-            new_user.set_password(form.cleaned_data['password']) #Правильная шифровка пароля
+            new_user.set_password(form.cleaned_data['password'])  # Правильная шифровка пароля
             new_user.save()
             return render(request, 'accounts/register_done.html', {'new_user': new_user})
         return render(request, 'accounts/register.html', {'form': form})
@@ -43,3 +46,9 @@ def profile(request, pk):
     qs = user.products.all()
     context = {'user': user, 'qs': qs}
     return render(request, 'accounts/profile.html', context)
+
+
+class ProfileUpdate(UpdateView):
+    model = Profile
+    fields = ['bio']
+    template_name = 'accounts/profile_update.html'
