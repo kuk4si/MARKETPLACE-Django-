@@ -3,10 +3,21 @@
 {% block title %}Редактирование :: {{ user.username }}{% endblock %}
 
 {% block content %}
-<br>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-    <input type="submit" value="Сохранить">
+
+            {% if request.user.pk == profile.user.pk %}
+
+                <br>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                <input type="submit" value="Сохранить">
+
+            {% else %}
+
+                <div class="error_account_access">
+                    Нет доступа
+                </div>
+
+            {% endif %}
 
 {% endblock %}

@@ -1,6 +1,42 @@
+.profile{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.profile_short_card{
+    background-color: gray;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.profile_short_card .user_title{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 25px;
+    font-family: Verdana;
+}
+
 .user_avatar{
+    display: block;
     border-radius: 100px;
     width: 200px;
     height: 200px;
-    margin-bottom: 15px;
+    margin: 0 auto 15px;
+}
+
+.profile_short_card .allow_update{
+    display: flex;
+    justify-content: center;
+}
+
+
+.register_date{
+    margin-top: 15px;
+    text-align: center;
+}
+
+.register_date p{
+    margin-bottom: 0px;
 }
