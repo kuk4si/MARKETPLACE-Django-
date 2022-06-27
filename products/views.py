@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
-from django.urls import reverse_lazy
-from django.views.generic import DetailView, CreateView
+from django.views.generic import DetailView
 
 from .models import Product
 from .forms import ProductForm
@@ -19,6 +18,8 @@ class ProductDetailView(DetailView):
 
 def create(request):
     user = request.user
+    if request.user.is_anonymous:
+        return redirect('/accounts/register')
     form = ProductForm(initial={'owner': user})
     if request.method == 'POST':
         form = ProductForm(request.POST)

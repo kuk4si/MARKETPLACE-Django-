@@ -6,6 +6,7 @@ from django.urls import reverse_lazy
 from django.views.generic import UpdateView
 from .models import Profile
 from .forms import UserLoginForm, UserRegistrationForm
+from .forms import ProfileEditForm
 
 
 def login_view(request):
@@ -41,13 +42,17 @@ def registration_view(request):
 
 
 def profile(request, pk):
-    user = User.objects.get(pk=pk)
-    qs = user.products.all()
-    context = {'user': user, 'qs': qs}
-    return render(request, 'accounts/profile.html', context)
+    if request.user.is_authenticated:
+        user = User.objects.get(pk=pk)
+        qs = user.products.all()
+        context = {'user': user, 'qs': qs}
+        return render(request, 'accounts/profile.html', context)
+    else:
+        return redirect('/accounts/register')
 
 
 class ProfileUpdate(UpdateView):
     model = Profile
-    fields = ['bio', 'avatar']
+    form_class = ProfileEditForm
+    # fields = ['bio', 'avatar']
     template_name = 'accounts/profile_update.html'

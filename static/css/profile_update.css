@@ -1,0 +1,15 @@
+.name_field{
+
+}
+
+.bio_field{
+    resize: none;
+}
+
+form label{
+    font-size: 18px;
+}
+
+form a{
+    color: white;
+}

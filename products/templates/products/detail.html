@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
+{% block custom_css %}
+    {% get_static_prefix as STATIC_PREFIX %}
+    <link rel="stylesheet" href="{{ STATIC_PREFIX }}css/product_detail.css" type="text/css">
+{% endblock %}
+
 {% block title %}Товары{% endblock %}
 
 
@@ -7,10 +14,24 @@
 {% block content %}
 
 
+<div class="product_profile">
+    <div class="product_name bg-secondary">
+        {{ object.name }}
+    </div>
 
-<h3>{{ object.name }}</h3>
-<p>{{ object.price }}</p>
-<p>{{ object.description }}</p>
+    <div class="product_price bg-secondary">
+        Цена: {{ object.price }}
+    </div>
+
+    <div class="product_owner bg-secondary">
+        Продавец: <a href="{% url 'accounts:profile' object.owner.pk %}">{{ object.owner }}</a>
+    </div>
+
+    <div class="product_description bg-secondary">
+        Описание: <br>
+        {{ object.description }}
+    </div>
+</div>
 
 
 {% endblock %}

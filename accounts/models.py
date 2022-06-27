@@ -4,8 +4,8 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.urls import reverse
 
-# Приявязка профиля к созданной модели пользователя
 
+# Приявязка профиля к созданной модели пользователя
 
 
 class Profile(models.Model):

@@ -2,6 +2,15 @@ from django import forms
 from django.contrib.auth import get_user_model, authenticate
 from django.contrib.auth.hashers import check_password
 from django.forms import ValidationError
+from .models import Profile
+from django.forms.widgets import ClearableFileInput
+
+
+class MyClearableFileInput(ClearableFileInput):
+    initial_text = ''
+    input_text = 'Изменить'
+    clear_checkbox_label = 'clear'
+
 
 User = get_user_model()
 
@@ -57,3 +66,21 @@ class UserRegistrationForm(forms.ModelForm):
         if data['password'] != data['password2']:
             raise forms.ValidationError('Пароли не совпадают')
         return data['password']
+
+
+class ProfileEditForm(forms.ModelForm):
+    name = forms.CharField(label='Имя', widget=forms.TextInput(attrs={
+        'class': 'form-control name_field col-5',
+        'placeholder': ''
+    }))
+
+    bio = forms.CharField(label='О себе', widget=forms.Textarea(attrs={
+        'class': 'form-control bio_field col-5',
+        'placeholder': '',
+    }))
+
+    avatar = forms.ImageField(label='Текущий аватар', widget=MyClearableFileInput)
+
+    class Meta:
+        model = Profile
+        fields = ('name', 'bio', 'avatar',)

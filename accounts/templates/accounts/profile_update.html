@@ -1,5 +1,14 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
+
+
+{% block custom_css %}
+    {% get_static_prefix as STATIC_PREFIX %}
+    <link rel="stylesheet" href="{{ STATIC_PREFIX }}css/profile_update.css" type="text/css">
+{% endblock %}
+
 {% block title %}Редактирование :: {{ user.username }}{% endblock %}
 
 {% block content %}
@@ -9,7 +18,9 @@
                 <br>
                 <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
-                    {{ form.as_p }}
+
+                        {{ form.as_p }}
+
                 <input type="submit" value="Сохранить">
 
             {% else %}
