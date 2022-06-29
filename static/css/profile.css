@@ -38,7 +38,8 @@
 
 .profile_short_about{
     padding: 15px;
-
+    font-size: 20px;
+    font-family: Verdana;
     border-radius: 10px;
     background-color: gray;
     height: 100%;
