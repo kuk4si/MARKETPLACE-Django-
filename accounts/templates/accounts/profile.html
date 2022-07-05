@@ -75,7 +75,7 @@
                     <tr>
                       <th scope="col">Название</th>
                       <th scope="col">Цена
-                      {% if request.user.pk == product.owner.pk %}
+                      {% if request.user.pk == user.pk %}
                       <th scope="col">&nbsp;</th>
                       {% endif %}
                     </tr>
