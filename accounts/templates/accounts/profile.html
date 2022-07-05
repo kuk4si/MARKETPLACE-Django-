@@ -32,7 +32,7 @@
                         {% if request.user.pk == user.pk %}
                             <div class="allow_update">
                                 <a href="{% url 'accounts:profile_update' user.pk %}">
-                                    <button type="button" class="btn btn-primary">Редактировать</button>
+                                    <button type="button" class="btn btn-info btn-sm">Изменить</button>
                                 </a>
                             </div>
                         {% endif %}
@@ -74,7 +74,10 @@
                   <thead>
                     <tr>
                       <th scope="col">Название</th>
-                      <th scope="col">Цена</th>
+                      <th scope="col">Цена
+                      {% if request.user.pk == product.owner.pk %}
+                      <th scope="col">&nbsp;</th>
+                      {% endif %}
                     </tr>
                   </thead>
                 <tbody>
@@ -82,6 +85,9 @@
                 <tr>
                       <td><a href="{% url 'products:detail' product.slug %}">{{ product.name }}</a></td>
                       <td>{{ product.price }}</td>
+                      {% if request.user.pk == product.owner.pk %}
+                      <td><a href="{% url 'products:update' product.slug %}"><button class="btn btn-outline-secondary btn-sm">Редактировать</button></a></td>
+                      {% endif %}
                 </tr>
                 {% endfor %}
                 </tbody>

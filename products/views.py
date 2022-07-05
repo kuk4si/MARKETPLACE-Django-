@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import DetailView
+from django.views.generic import DetailView, UpdateView
 
 from .models import Product
 from .forms import ProductForm
@@ -14,6 +14,12 @@ def home(request):
 class ProductDetailView(DetailView):
     model = Product
     template_name = 'products/detail.html'
+
+
+class ProductUpdateView(UpdateView):
+    model = Product
+    template_name = 'products/update.html'
+    form_class = ProductForm
 
 
 def create(request):

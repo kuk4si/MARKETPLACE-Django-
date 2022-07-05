@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block custom_css %}
+    {% get_static_prefix as STATIC_PREFIX %}
+    <link rel="stylesheet" href="{{ STATIC_PREFIX }}css/product_detail.css" type="text/css">
+{% endblock %}
+
+{% block title %}Редактировать товар{% endblock %}
+
+
+
+{% block content %}
+
+{% if request.user.pk == object.owner.pk %}
+
+<h2>Редактирование товара</h2>
+
+{% include 'form.html' with button='Редактировать' %}
+
+{% else %}
+
+<h2>Это не ваш товар :(</h2>
+
+{% endif %}
+
+{% endblock %}
