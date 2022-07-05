@@ -7,4 +7,4 @@
 
 1) Моделями и их методами (Django ORM)
 2) Формами (Form и ModelForm)
-3) Базовые навыыки CSS/HTML/Bootstrap
+3) Базовые навыки CSS/HTML/Bootstrap
