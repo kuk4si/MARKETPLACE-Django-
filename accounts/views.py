@@ -1,8 +1,6 @@
 from django.contrib.auth.models import User
-from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
-from django.urls import reverse_lazy
 from django.views.generic import UpdateView
 from .models import Profile
 from .forms import UserLoginForm, UserRegistrationForm
@@ -10,6 +8,7 @@ from .forms import ProfileEditForm
 
 
 def login_view(request):
+    """  Форма входа  """
     form = UserLoginForm(request.POST or None)
     _next = request.GET.get('next')
     if form.is_valid():
@@ -23,11 +22,13 @@ def login_view(request):
 
 
 def logout_view(request):
+    """  Выход из аккаунта  """
     logout(request)
     return redirect('/')
 
 
 def registration_view(request):
+    """  Регистрация  """
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
@@ -42,6 +43,7 @@ def registration_view(request):
 
 
 def profile(request, pk):
+    """  Просмотр профиля  """
     if request.user.is_authenticated:
         user = User.objects.get(pk=pk)
         qs = user.products.all()
@@ -52,7 +54,16 @@ def profile(request, pk):
 
 
 class ProfileUpdate(UpdateView):
+    """  Редактирование профиля"""
     model = Profile
     form_class = ProfileEditForm
-    # fields = ['bio', 'avatar']
     template_name = 'accounts/profile_update.html'
+
+
+"""
+    ДОПОЛНЕНИЕ:
+Некотарая логика прописана в HTML файлах, такая как,
+проверка текущего пользователя на возможность редактировать профиль,
+что бы другой пользователь не смог отредактировать чужой профиль. Редактирование
+товаров.
+"""
