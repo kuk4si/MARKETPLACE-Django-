@@ -1,0 +1,52 @@
+.profile_short_card{
+    border-radius: 10px;
+    background-color: gray;
+    margin: 0;
+    padding: 0;
+}
+
+.profile_short_card .user_title{
+    font-size: 25px;
+    font-weight: normal;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.profile_short_card .user_avatar{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.profile_short_card .allow_update{
+    display: flex;
+    justify-content: center;
+}
+
+.profile_short_card .register_date{
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+.profile_short_card .register_date p{
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.profile_short_about{
+    padding: 15px;
+    font-size: 20px;
+    font-family: Verdana;
+    border-radius: 10px;
+    background-color: gray;
+    height: 100%;
+}
+
+.users_products{
+    font-size: 25px;
+    margin-top: 25px;
+    margin-bottom: 5px;
+}
