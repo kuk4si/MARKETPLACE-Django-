@@ -1,15 +1,17 @@
 .profile_short_card{
-    border-radius: 10px;
+    color: white;
     background-color: gray;
     margin: 0;
     padding: 0;
+    padding-top: 5px;
 }
 
-.profile_short_card .user_title{
+.profile_short_card .user_title p{
     font-size: 25px;
     font-weight: normal;
     text-align: center;
     font-family: sans-serif;
+    margin-bottom: 0;
 }
 
 .profile_short_card .user_avatar{
@@ -17,7 +19,7 @@
     height: 200px;
     border-radius: 100px;
     display: block;
-    margin: 0 auto 10px;
+    margin: 10px auto 20px;
 }
 
 .profile_short_card .allow_update{
@@ -37,10 +39,10 @@
 }
 
 .profile_short_about{
+    color: white;
     padding: 15px;
     font-size: 20px;
-    font-family: Verdana;
-    border-radius: 10px;
+    font-family: sans-serif;
     background-color: gray;
     height: 100%;
 }

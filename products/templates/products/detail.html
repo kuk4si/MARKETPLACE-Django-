@@ -14,20 +14,20 @@
 {% block content %}
 
 
-<div class="product_profile">
-    <div class="product_name bg-secondary">
+<div class="product_profile bg-dark">
+    <div class="product_name">
         {{ object.name }}
     </div>
 
-    <div class="product_price bg-secondary">
+    <div class="product_price">
         Цена: {{ object.price }}
     </div>
 
-    <div class="product_owner bg-secondary">
+    <div class="product_owner">
         Продавец: <a href="{% url 'accounts:profile' object.owner.pk %}">{{ object.owner }}</a>
     </div>
 
-    <div class="product_description bg-secondary">
+    <div class="product_description">
         Описание: <br>
         {{ object.description }}
     </div>

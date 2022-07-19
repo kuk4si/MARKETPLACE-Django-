@@ -15,10 +15,10 @@
         <div class="row">
 
             <div class="col-3">
-                <div class="profile_short_card">
+                <div class="profile_short_card bg-dark">
 
                     <div class="user_title">
-                        {{ user.username }}
+                        <p>{{ user.username }}</p>
                     </div>
 
                         {% get_static_prefix as STATIC_PREFIX %}
@@ -48,10 +48,14 @@
             <div class="col-1"></div>
 
             <div class="col-8">
-                <div class="profile_short_about">
+                <div class="profile_short_about bg-dark">
 
                     <div class="user_life_name">
-                        Имя: {{ user.profile.name }}
+                        {% if user.profile.name %}
+                            Имя: {{ user.profile.name }}
+                        {% else %}
+                            Имя не указано
+                        {% endif %}
                     </div>
                     <hr color="white">
                     <div class="user_about_self">

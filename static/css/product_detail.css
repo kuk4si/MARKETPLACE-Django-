@@ -1,6 +1,6 @@
 .product_profile{
-    border: #343a40 solid 3px;
     padding: 5px;
+    padding-left: 20px;
 }
 
 .product_profile a{
@@ -23,6 +23,11 @@
     color: white;
     font-size: 20px;
 }
+
+.product_owner a{
+    color: #7BA864;
+}
+
 
 .product_description{
     margin-top: 10px;
