@@ -16,7 +16,8 @@ class ProductForm(forms.ModelForm):
 
     price = forms.DecimalField(label='Цена', widget=forms.NumberInput(attrs={
         'class': 'form-control',  # <input class="form-control">
-        'placeholder': 'Укажите цену (в рублях)'
+        'placeholder': 'Укажите цену (в рублях)',
+        'style': 'width: 30%'
     }))
 
     description = forms.CharField(label='Описание', widget=forms.Textarea(attrs={

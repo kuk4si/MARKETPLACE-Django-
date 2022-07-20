@@ -1,11 +1,23 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
+{% block custom_css %}
+    {% get_static_prefix as STATIC_PREFIX %}
+    <link rel="stylesheet" href="{{ STATIC_PREFIX }}css/register.css" type="text/css">
+{% endblock %}
+
 {% block title %}Регистрация{% endblock %}
 
 {% block content %}
 
-        <h1>Регистрация нового пользователя</h1>
+        <div class="row">
+                <div class="register_label bg-dark mx-auto col-md-4">
+                        <p>Регистрация нового пользователя</p>
+                </div>
+        </div>
 
-        {% include 'form.html' with button='Зарегестрироваться' %}
+
+        {% include 'form_for_auth.html' with button='Зарегестрироваться' %}
 
 {% endblock  %}

@@ -15,9 +15,10 @@
 
 {% if request.user.pk == object.owner.pk %}
 
-<h2>Редактирование товара</h2>
+<div class="update_label bg-dark" style="color: white; padding-left: 25px; padding-top: 10px;
+padding-bottom: 10px;"><p style="margin: 0; font-size: 30px;">Редактирование товара</p></div>
 
-{% include 'form.html' with button='Редактировать' %}
+{% include 'product_form.html' with button='Редактировать' %}
 
 {% else %}
 

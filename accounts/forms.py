@@ -52,7 +52,7 @@ class UserRegistrationForm(forms.ModelForm):
         'placeholder': 'Password'
     }))
 
-    password2 = forms.CharField(label='Пароль опять', widget=forms.PasswordInput(attrs={
+    password2 = forms.CharField(label='Пароль повторно', widget=forms.PasswordInput(attrs={
         'class': 'form-control',
         'placeholder': 'Password again'
     }))
@@ -69,17 +69,17 @@ class UserRegistrationForm(forms.ModelForm):
 
 
 class ProfileEditForm(forms.ModelForm):
-    name = forms.CharField(label='Имя', widget=forms.TextInput(attrs={
+    name = forms.CharField(required=False, label='Имя', widget=forms.TextInput(attrs={
         'class': 'form-control name_field col-5',
-        'placeholder': ''
+        'placeholder': '',
     }))
 
-    bio = forms.CharField(label='О себе', widget=forms.Textarea(attrs={
+    bio = forms.CharField(required=False, label='О себе', widget=forms.Textarea(attrs={
         'class': 'form-control bio_field col-5',
         'placeholder': '',
     }))
 
-    avatar = forms.ImageField(label='Текущий аватар', widget=MyClearableFileInput)
+    avatar = forms.ImageField(required=False, label='Текущий аватар', widget=MyClearableFileInput)
 
     class Meta:
         model = Profile

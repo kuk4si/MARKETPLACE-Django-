@@ -47,19 +47,24 @@
 
             <div class="col-1"></div>
 
-            <div class="col-8">
+            <div class="col-md-8">
                 <div class="profile_short_about bg-dark">
 
                     <div class="user_life_name">
                         {% if user.profile.name %}
                             Имя: {{ user.profile.name }}
                         {% else %}
-                            Имя не указано
+                            Имя: не указано
                         {% endif %}
                     </div>
                     <hr color="white">
                     <div class="user_about_self">
-                        О себе: {{ user.profile.bio }}
+                        {% if user.profile.bio %}
+                            <p>О себе:</p>
+                            <p style="overflow:hidden;">{{ user.profile.bio }}</p>
+                        {% else %}
+                            <p>О себе: не указано</p>
+                        {% endif %}
                     </div>
 
                 </div>
@@ -70,8 +75,8 @@
 
 
         {% if qs %}
-                <div class="users_products">
-                    Товары пользователя:
+                <div class="users_products bg-dark" style="padding-left: 12px; margin-bottom: 0;">
+                    <p style="color: white; margin: 0;">Товары пользователя:</p>
                 </div>
 
                 <table class="table table-dark">

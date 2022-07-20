@@ -1,11 +1,23 @@
+
 {% extends 'base.html' %}
+
+{% load static %}
+
+{% block custom_css %}
+    {% get_static_prefix as STATIC_PREFIX %}
+    <link rel="stylesheet" href="{{ STATIC_PREFIX }}css/login.css" type="text/css">
+{% endblock %}
 
 {% block title %}Форма входа{% endblock %}
 
 {% block content %}
 
-        <h1>Войти в аккаунт</h1>
+        <div class="row">
+                <div class="login_label bg-dark mx-auto col-md-4">
+                        <p>Войти в аккаунт</p>
+                </div>
+        </div>
 
-        {% include 'form.html' with button='Войти' %}
+        {% include 'form_for_auth.html' with button='Войти' %}
 
 {% endblock  %}

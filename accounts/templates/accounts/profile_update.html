@@ -15,13 +15,16 @@
 
             {% if request.user.pk == profile.user.pk %}
 
-                <br>
+            <div class="profile_update_form_custom bg-dark" style="color: white; padding-left: 12px;
+padding-bottom: 20px;">
+                <p style="font-size: 30px;">Редактирование профиля</p>
                 <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
 
                         {{ form.as_p }}
 
                 <input type="submit" value="Сохранить">
+            </div>
 
             {% else %}
 

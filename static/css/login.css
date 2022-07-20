@@ -1,0 +1,9 @@
+.login_label{
+    color: white;
+    text-align: center;
+}
+
+.login_label p{
+    margin-top: 15px;
+    font-size: 30px;
+}

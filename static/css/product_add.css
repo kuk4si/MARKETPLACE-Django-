@@ -1,0 +1,11 @@
+.add_product_label{
+    padding-bottom: 10px;
+}
+
+.add_product_label p{
+    color: white;
+    margin: 0;
+    padding-left: 25px;
+    font-size: 35px;
+}
+

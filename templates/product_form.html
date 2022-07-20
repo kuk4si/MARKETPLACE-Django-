@@ -1,0 +1,10 @@
+<div class="bg-dark" style="padding-left: 25px; padding-right: 25px; padding-bottom: 1px;">
+    <form action="{{ action }}" method="post" style="color:white;">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="button_space mx-auto" style="display: flex; justify-content: center; margin-bottom: 20px; margin-top: 20px;">
+            <button type="submit" class="btn btn-success">{{ button }}</button>
+        </div>
+    </form>
+</div>
+

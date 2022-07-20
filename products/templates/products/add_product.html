@@ -1,11 +1,18 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
+{% block custom_css %}
+    {% get_static_prefix as STATIC_PREFIX %}
+    <link rel="stylesheet" href="{{ STATIC_PREFIX }}css/product_add.css" type="text/css">
+{% endblock %}
+
 {% block title %}Добавить товар{% endblock %}
 
 {% block content %}
 
-        <h1>Добавить товар</h1>
+        <div class="add_product_label bg-dark"><p>Добавить товар</p></div>
 
-        {% include 'form.html' with button='Создать' %}
+        {% include 'product_form.html' with button='Создать' %}
 
 {% endblock  %}
